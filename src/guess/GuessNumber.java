@@ -25,13 +25,13 @@ public class GuessNumber {
                     System.out.println("I am thinking a number from 1 to 100. Try to guess it");
                     boolean userWin = false;
                     for (int attempt = 1; attempt <= 10; attempt++) {
-                        System.out.printf("Attempt #%d. Enter your guess: ", attempt);
+                        System.out.printf("Attempt #%d.", attempt);
                         int userNum = askNumber("Enter your number", 1, 100);
                         if (myNum > userNum) {
                             System.out.println("Your number is too low");
 
                         } else if (myNum < userNum) {
-                            System.out.print("Your number is too hight");
+                            System.out.println("Your number is too high");
                         } else if (myNum == userNum) {
                             System.out.printf("You won! %d attempts were used.\n", attempt);
                             userWin = true;
@@ -43,11 +43,12 @@ public class GuessNumber {
                         System.out.printf("You lost! My number was %d\n", myNum);
 
                     }
-                    System.out.print("Do you want to play again? (Yes/no)");
+                    System.out.println("Do you want to play again? (Yes/no)");
 
-                }while (!scanner.next().equals("no"));
-                System.out.print("Good bye " + userName + "!");
+                } while (!scanner.next().equals("no"));
+                System.out.println("Good bye " + userName + "!");
         }
+
     }
 
     public static int askNumber(String msg, int min, int max) {
