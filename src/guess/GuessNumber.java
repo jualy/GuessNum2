@@ -19,7 +19,7 @@ public class GuessNumber {
             System.out.println("Hello, " + userName + "!");
 
             System.out.println("I want to play! Do you want to start?");
-            while (scanner.next().equals("yes"))
+            if (scanner.next().equals("yes"))
                 do {
                     int myNum = random.nextInt(100) + 1;
                     System.out.println("I am thinking a number from 1 to 100. Try to guess it");
@@ -50,8 +50,22 @@ public class GuessNumber {
         }
 
     }
+public void askYesOrNo(String msg) {
+    System.out.println("Did you like the game? (Yes/no)");
+    if (!scanner.next().equals("yes")) ;
+    {
+        System.out.println("Thank you!");
 
-    public static int askNumber(String msg, int min, int max) {
+    }
+    if (!scanner.next().equals("no")) ;
+    {
+        System.out.println("I am sorry!");
+
+    }
+
+}
+
+public static int askNumber(String msg, int min, int max) {
 
 
         while (true) {
