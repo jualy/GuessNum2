@@ -9,9 +9,13 @@ public class GuessNumber {
     private static Scanner scanner = new Scanner(System.in);
     private static ArrayList<GameResult> leaderboard = new ArrayList<>();
     private static File leaderboardFile = new File("leaderboard.txt");
+    private static ArrayList<GameResult> Records = new ArrayList<>();
+    private static File RecordsFile = new File ("Records.txt");
 
     public static void main(String[] args) {
-        loadLeaderboard();
+        leaderboard();
+        Records();
+
         String name;
         Random random = new Random();
         do {
@@ -38,6 +42,7 @@ public class GuessNumber {
                     gr.setAttempts(attempt);
                     gr.setDuration(endTime - startTime);
                     leaderboard.add(gr);
+                    Records.add(gr);
 
                     System.out.printf("You won! %d attempts were used.\n", attempt);
                     userWin = true;
@@ -57,7 +62,12 @@ public class GuessNumber {
         System.out.println("Good bye!");
     }
 
-    private static void loadLeaderboard() {
+    private static void Records() {
+
+
+    }
+
+    private static void leaderboard() {
         try (var in = new Scanner(leaderboardFile)) {
             while (in.hasNext()) {
                 var gr = new GameResult();
