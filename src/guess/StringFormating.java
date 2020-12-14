@@ -1,6 +1,6 @@
 package guess;
 
-public class Records {
+public class StringFormating {
     public static void main(String[] args) {
         String heading1 = "userName";
         String heading2 = "Attempts";
@@ -26,14 +26,14 @@ public class Records {
         String Duration5 = "setDuration5";
 
         System.out.println("");
-        System.out.printf("%s %d %d %n", heading1, heading2, heading3);
+        System.out.printf("%-15s %8d %5.1fs %n", heading1, heading2, heading3);
         System.out.println(divider);
 
-        System.out.printf("%s %d %d %n, name1, Attempt1, Duration1");
-        System.out.printf("%s %d %d %n, name2, Attempt2, Duration2");
-        System.out.printf("%s %d %d %n, name3, Attempt3, Duration3");
-        System.out.printf("%s %d %d %n, name4, Attempt4, Duration4");
-        System.out.printf("%s %d %d %n, name5, Attempt5, Duration5");
+        System.out.printf("%-15s %8d %5.1fs %n", name1, Attempt1, Duration1);
+        System.out.printf("%-15s %8d %5.1fs %n", name2, Attempt2, Duration2);
+        System.out.printf("%-15s %8d %5.1fs %n", name3, Attempt3, Duration3);
+        System.out.printf("%-15s %8d %5.1fs %n", name4, Attempt4, Duration4);
+        System.out.printf("%-15s %8d %5.1fs %n", name5, Attempt5, Duration5);
 
 
         System.out.println(divider);

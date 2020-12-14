@@ -9,12 +9,12 @@ public class GuessNumber {
     private static Scanner scanner = new Scanner(System.in);
     private static ArrayList<GameResult> leaderboard = new ArrayList<>();
     private static File leaderboardFile = new File("leaderboard.txt");
-    private static ArrayList<GameResult> Records = new ArrayList<>();
-    private static File RecordsFile = new File ("Records.txt");
+    private static ArrayList<GameResult> StringFormating = new ArrayList<>();
+    private static File StringFormatingFile = new File ("Records.txt");
 
     public static void main(String[] args) {
         leaderboard();
-        Records();
+        StringFormating();
 
         String name;
         Random random = new Random();
@@ -42,7 +42,7 @@ public class GuessNumber {
                     gr.setAttempts(attempt);
                     gr.setDuration(endTime - startTime);
                     leaderboard.add(gr);
-                    Records.add(gr);
+                    StringFormating.add(gr);
 
                     System.out.printf("You won! %d attempts were used.\n", attempt);
                     userWin = true;
@@ -62,7 +62,7 @@ public class GuessNumber {
         System.out.println("Good bye!");
     }
 
-    private static void Records() {
+    private static void StringFormating() {
 
 
     }
@@ -134,7 +134,7 @@ public class GuessNumber {
         for (GameResult gr : subList)
 
 
-            System.out.printf("%s \t %d \t %.1f \n", gr.getName(), gr.getAttempts(), gr.getDuration() / 1000.0);
+            System.out.printf("%-15s %8d %5.1fs %n", gr.getName(), gr.getAttempts(), gr.getDuration() / 1000.0);
     }
 
     private static void printleaderboard4() {
