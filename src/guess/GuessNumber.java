@@ -10,7 +10,7 @@ public class GuessNumber {
     private static ArrayList<GameResult> leaderboard = new ArrayList<>();
     private static File leaderboardFile = new File("leaderboard.txt");
     private static ArrayList<GameResult> StringFormating = new ArrayList<>();
-    private static File StringFormatingFile = new File ("Records.txt");
+    private static File StringFormatingFile = new File("Records.txt");
 
     public static void main(String[] args) {
         leaderboard();
@@ -63,9 +63,16 @@ public class GuessNumber {
     }
 
     private static void StringFormating() {
+        var maxLen = leaderboard.stream()
+                .mapToInt(gr -> gr.getName().length()) // конвеерная операция - "достаем" длину имени из каждого результата
+                .max()                                 // находим максимальную длину
+                .getAsInt();                           // получаем результат как целое число
 
-
+        for (GameResult gr : leaderboard) {
+            System.out.printf("%-15s %8d %5.1fs%n", gr.getName(), gr.getAttempts(), gr.getDuration() / 1000.0);
+        }
     }
+
 
     private static void leaderboard() {
         try (var in = new Scanner(leaderboardFile)) {
@@ -134,7 +141,7 @@ public class GuessNumber {
         for (GameResult gr : subList)
 
 
-            System.out.printf("%-15s %8d %5.1fs %n", gr.getName(), gr.getAttempts(), gr.getDuration() / 1000.0);
+            System.out.printf("%s \t %d \t %.1f \n", gr.getName(), gr.getAttempts(), gr.getDuration() / 1000.0);
     }
 
     private static void printleaderboard4() {
