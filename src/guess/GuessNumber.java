@@ -64,9 +64,9 @@ public class GuessNumber {
 
     private static void StringFormating() {
         var maxLen = leaderboard.stream()
-                .mapToInt(gr -> gr.getName().length()) // конвеерная операция - "достаем" длину имени из каждого результата
-                .max()                                 // находим максимальную длину
-                .getAsInt();                           // получаем результат как целое число
+                .mapToInt(gr -> gr.getName().length())
+                .max()
+                .getAsInt();
 
         for (GameResult gr : leaderboard) {
             System.out.printf("%-15s %8d %5.1fs%n", gr.getName(), gr.getAttempts(), gr.getDuration() / 1000.0);
